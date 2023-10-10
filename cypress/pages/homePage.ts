@@ -1,4 +1,9 @@
 class HomePage {
+  private url: string
+  private header: string
+  private subheading: string
+  private allLinks: string
+
   constructor() {
     this.url = '/'
     this.header = "h1[class='heading']"
@@ -22,9 +27,9 @@ class HomePage {
 
   /**
    * Assert the header text is the same as the passed value
-   * @param {*} expected The value we expect the header to have
+   * @param expected The value we expect the header to have
    */
-  assertHeaderText(expected) {
+  assertHeaderText(expected: string) {
     cy.get(this.header).should('have.text', expected)
   }
 
@@ -37,10 +42,9 @@ class HomePage {
 
   /**
    * Assert the subheading text is the same as the passed value
-   * @param {*} expected The value we expect the subheading to have
+   * @param expected The value we expect the subheading to have
    */
-  assertSubheadingText(expected) {
-    // A different way to assertHeaderText by storing the text then comparing it to passed value
+  assertSubheadingText(expected: string) {
     cy.get(this.subheading).should(($subHeader) => {
       const text = $subHeader.text()
       expect(text).to.equal(expected)
@@ -49,9 +53,9 @@ class HomePage {
 
   /**
    * Assert we have the expected number of links on the page
-   * @param {*} expected Number of links to expect
+   * @param expected Number of links to expect
    */
-  assertNumberOfLinks(expected) {
+  assertNumberOfLinks(expected: number) {
     cy.get(this.allLinks).should('have.length', expected)
   }
 
@@ -65,18 +69,20 @@ class HomePage {
     / a text value represents the link text
     / a href value represents the href url value 
     */
-    cy.fixture('homePageLinks').then((links) => {
-      // Loop through each link in the json file
-      for (var index in links) {
-        cy.log('LINK IS ' + links[index].text)
-        cy.log('HREF IS ' + links[index].href)
-        cy.contains(links[index].text).should(
-          'have.attr',
-          'href',
-          links[index].href
-        )
+    cy.fixture('homePageLinks').then(
+      (links: { text: string; href: string }[]) => {
+        // Loop through each link in the json file
+        for (const index in links) {
+          cy.log('LINK IS ' + links[index].text)
+          cy.log('HREF IS ' + links[index].href)
+          cy.contains(links[index].text).should(
+            'have.attr',
+            'href',
+            links[index].href
+          )
+        }
       }
-    })
+    )
   }
 }
 

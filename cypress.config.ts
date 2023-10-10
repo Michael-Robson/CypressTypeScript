@@ -1,6 +1,6 @@
-const { defineConfig } = require('cypress')
+import { defineConfig } from 'cypress'
 
-module.exports = defineConfig({
+export default defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     reportDir: 'cypress/reports/testReports',
@@ -11,7 +11,7 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
   },
   e2e: {
-    setupNodeEvents(on, config) {
+    setupNodeEvents(on) {
       // implement node event listeners here
       require('cypress-mochawesome-reporter/plugin')(on)
     },

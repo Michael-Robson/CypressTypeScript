@@ -61,7 +61,7 @@ describe('Forgot password tests', () => {
     forgotPasswordPage.assertSubmitButtonPresent()
 
     // Assert the submit button text is correct
-    forgotPasswordPage.assertSubmitButtnTextCorrect()
+    forgotPasswordPage.assertSubmitButtonTextCorrect()
   })
 
   it('Submit a request and check the API returns a 500', () => {

@@ -40,6 +40,9 @@ Reporter configraution and the base URL is set in `cypress.config.js`
 - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) - Turns off all rules that are unnecessary or might conflict with Prettier.
 - [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress#readme) - Adds Cypress rules to eslint
 - [prettier](https://prettier.io/) - A code formatter
+- [typescript](https://github.com/Microsoft/TypeScript) - TypeScript is a language for application-scale JavaScript.
+- [typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint) - Allows eslint to run against TypeScript files
+- [typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) - Add TypeScript rules to eslint
 - [husky](https://typicode.github.io/husky/) - Improves commits by allowing you to run linting or tests before a push to a branch
 - [lint-staged](https://github.com/okonet/lint-staged) - Runs linting before a commit, works in conjunction with husky
 

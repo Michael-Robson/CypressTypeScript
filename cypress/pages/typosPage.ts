@@ -1,4 +1,11 @@
 class TyposPage {
+  private url: string
+  private header: string
+  private expectedHeader: string
+  private paragraphs: string
+  private expectedInstructions: string
+  private expectedMessage: string
+
   constructor() {
     this.url = '/typos'
     this.header = 'h3'
@@ -73,9 +80,9 @@ class TyposPage {
   }
 
   /**
-   * Assert the message is what we expect or reload page and try again
+   * Assert the message is what we expect or reload the page and try again
    */
-  assertMessageTextIsCorrectWithRetry(maxRetries) {
+  assertMessageTextIsCorrectWithRetry(maxRetries: number) {
     let attempt = 0
 
     // Use an arrow function to capture the correct context
@@ -100,13 +107,13 @@ class TyposPage {
             // Compare the text with the expected message and assert
             expect(
               text.trim(),
-              `After ${maxRetries} attemps we had ${text.trim()}`
-            ).to.equal(this.expectedMessage.trim())
+              `After ${maxRetries} attempts we had ${text.trim()}`
+            ).equal(this.expectedMessage.trim())
           }
         })
     }
 
-    // Start the text verification by calling the checkText function remember Cypress is async
+    // Start the text verification by calling the checkText function; remember Cypress is async
     checkText()
   }
 }

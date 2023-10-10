@@ -1,9 +1,9 @@
 {
-  "name": "CypressTest",
+  "name": "CypressTestTypeScript",
   "version": "1.0.0",
-  "description": "A project to show off Cypress knowledge on LinkedIn",
+  "description": "A project to show off Cypress knowledge on LinkedIn with TypeScript",
   "main": "index.js",
-  "repository": "https://github.com/Michael-Robson/CypressTest",
+  "repository": "https://github.com/Michael-Robson/CypressTypeScript",
   "author": "Michael Robson",
   "license": "MIT",
   "private": true,
@@ -14,7 +14,7 @@
   "scripts": {
     "prepare": "husky install",
     "cypress:open": "cypress open",
-    "lint": "eslint ./cypress --ext .js",
+    "lint": "eslint ./cypress --ext .js,.ts",
     "prettier:check": "prettier --check .",
     "format": "prettier --write .",
     "lint:fix": "yarn run lint --fix",
@@ -22,13 +22,16 @@
     "allTestsChrome": "cypress run --browser chrome"
   },
   "devDependencies": {
-    "cypress": "^12.17.4",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "cypress": "^13.3.0",
     "cypress-mochawesome-reporter": "^3.5.1",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.14.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.2"
+    "prettier": "^3.0.2",
+    "typescript": "^5.2.2"
   }
 }

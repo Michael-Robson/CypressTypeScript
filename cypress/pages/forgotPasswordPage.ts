@@ -1,4 +1,15 @@
 class ForgotPasswordPage {
+  private url: string
+  private header: string
+  private expectedHeaderText: string
+  private emailLabel: string
+  private expectedEmailLabel: string
+  private emailInput: string
+  private submitButton: string
+  private submitButtonText: string
+  private expectedSubmitButtonText: string
+  private apiRequest: string
+
   constructor() {
     this.url = '/forgot_password'
     this.header = 'h2'
@@ -56,9 +67,9 @@ class ForgotPasswordPage {
 
   /**
    * Types the given value in the email field
-   * @param {any} text to enter into the field
+   * @param text The text to enter into the field
    */
-  setEmail(text) {
+  setEmail(text: string) {
     cy.get(this.emailInput).type(text)
   }
 
@@ -70,9 +81,7 @@ class ForgotPasswordPage {
     return cy
       .get(this.emailInput)
       .invoke('val')
-      .then(($value) => {
-        return $value
-      })
+      .then(($value) => $value)
   }
 
   /**
@@ -85,7 +94,7 @@ class ForgotPasswordPage {
   /**
    * Asserts the submit button text is correct
    */
-  assertSubmitButtnTextCorrect() {
+  assertSubmitButtonTextCorrect() {
     cy.get(this.submitButtonText).should(
       'have.text',
       this.expectedSubmitButtonText
